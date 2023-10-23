@@ -21,16 +21,18 @@ startButton.addEventListener("click", startGame)
 document.addEventListener("keydown", (event) => {
     if (event.code === "Space") {
         console.log("intentando salto")
-        gameObject.rac.jump()
+        gameObject.mapache.jump()
     }
 
     else if (event.code === "ArrowLeft") {
         console.log("intentando izquierda")
-        gameObject.rac.movLeft()
+
+        gameObject.mapache.movLeft()
     }
 
     else if (event.code === "ArrowRight") {
+
         console.log("intentando derecha")
-        gameObject.rac.movRight()
+        gameObject.mapache.movRight()
     }
 })

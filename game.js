@@ -26,7 +26,7 @@ cochesDisapp = () => {
 winMap = () => {
 if (this.mapache.exeY < 0){
     this.isGameOn = false;
-    winScreen.style.display = "flex"
+    winScreen.style.display = "flex"  
     gameScreen.style.display = "none"
 } 
 }
@@ -47,7 +47,7 @@ gameLoop = () => {
     this.timer++;
     if (this.isGameOn === true){
         requestAnimationFrame(this.gameLoop);
-    };
+    }; 
     this.cochesDisapp();
 
 }
