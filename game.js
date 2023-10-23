@@ -6,7 +6,7 @@ class Game {
     this.obstacle = new Coche();
     this.cochesArr = [];
     this.tronco = new Troncos();
-    this.alturaTroncoArr = [];
+    this.troncoArr = [];
   }
 
   troncosAppear = () => {
@@ -24,17 +24,23 @@ class Game {
       if (this.timer % 60 === 0) {
         const alturaTroncoArr = [120, 160];
         let alturaTroncoRandom =
-          alturaTroncoArr[Math.floor(Math.random() * alturaTroncoArr.length)];
+        alturaTroncoArr[Math.floor(Math.random() * alturaTroncoArr.length)];
   
 
   
         let troncosIzq = new Troncos (alturaTroncoRandom);
-        this.cochesArr.push(troncosIzq);
+        this.troncoArr.push(troncosIzq);
   
       }
 
 
   };
+
+  troncosDisapp = () => {
+    if (this.cochesArr.x < 600) {
+      this.cochesArr.car.remove();
+      this.cochesArr.shift();
+  }
 
   cochesAppear = () => {
     if (this.timer % 80 === 0) {
