@@ -41,6 +41,7 @@ class Game {
       this.cochesArr.car.remove();
       this.cochesArr.shift();
   }
+}
 
   cochesAppear = () => {
     if (this.timer % 80 === 0) {
@@ -86,7 +87,7 @@ class Game {
     this.cochesArr.forEach((eachCoche) => {
       eachCoche.automaticMovement();
     });
-    this.alturaTroncoArr.forEach((eachTronco) => {
+    this.troncoArr.forEach((eachTronco) => {
       eachTronco.troncoMov();
     })
   
