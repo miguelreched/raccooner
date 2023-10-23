@@ -1,38 +1,32 @@
-let startButton = document.querySelector("#start-btn")
-let firstScreen = document.querySelector("#first-screen")
-let gameScreen = document.querySelector("#game-screen")
-let gameBox = document.querySelector("#game-box")
-let gameOverScreen = document.querySelector("#gameover-screen")
-let winScreen = document.querySelector("#win-screen")
-
+let startButton = document.querySelector("#start-btn");
+let firstScreen = document.querySelector("#first-screen");
+let gameScreen = document.querySelector("#game-screen");
+let gameBox = document.querySelector("#game-box");
+let gameOverScreen = document.querySelector("#gameover-screen");
+let winScreen = document.querySelector("#win-screen");
 
 let gameObject;
 
 const startGame = () => {
-    firstScreen.style.display = "none"
-    gameScreen.style.display = "flex"
+  firstScreen.style.display = "none";
+  gameScreen.style.display = "flex";
 
-    gameObject = new Game()
-    gameObject.gameLoop()
-}
+  gameObject = new Game();
+  gameObject.gameLoop();
+};
 
-startButton.addEventListener("click", startGame)
+startButton.addEventListener("click", startGame);
 
 document.addEventListener("keydown", (event) => {
-    if (event.code === "Space") {
-        console.log("intentando salto")
-        gameObject.mapache.jump()
-    }
+  if (event.code === "Space") {
+    console.log("intentando salto");
+    gameObject.mapache.jump();
+  } else if (event.code === "ArrowLeft") {
+    console.log("intentando izquierda");
 
-    else if (event.code === "ArrowLeft") {
-        console.log("intentando izquierda")
-
-        gameObject.mapache.movLeft()
-    }
-
-    else if (event.code === "ArrowRight") {
-
-        console.log("intentando derecha")
-        gameObject.mapache.movRight()
-    }
-})
+    gameObject.mapache.movLeft();
+  } else if (event.code === "ArrowRight") {
+    console.log("intentando derecha");
+    gameObject.mapache.movRight();
+  }
+});
