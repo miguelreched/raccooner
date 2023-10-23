@@ -10,18 +10,18 @@ class Game {
 cochesAppear = () => {
     if (this.timer % 60 === 0) {
 
-        let randomPosition = Math.random()* -100;
+        let randomPosition = Math.random(math.floor)* 2;
         let cocheLeft = new Coche ("left", randomPosition);
         this.cochesArr.push(cocheLeft);
     }
 
 }
 
-cochesDisapp = () => {
-    if(this.cochesArr[0].x < 0){
-        this.cochesArr[0].car.remove()
-        this.cochesArr.shift()
-    }
+// cochesDisapp = () => {
+//     if(this.cochesArr[0].x < 600){
+//         this.cochesArr[0].car.remove()
+//         this.cochesArr.shift()
+//     }
 }
 winMap = () => {
 if (this.mapache.exeY < 0){
@@ -30,7 +30,7 @@ if (this.mapache.exeY < 0){
     gameScreen.style.display = "none"
 } 
 }
-gameOver (){
+gameOver = () =>{
 this.isGameOn = false;
 gameScreen.style.display = "none"
 gameOverScreen.style.display = "flex"
@@ -42,7 +42,7 @@ gameLoop = () => {
     this.cochesArr.forEach((eachCoche)=>{
         eachCoche.automaticMovement() 
     })
-    this.cochesAppear();
+    //this.cochesAppear();
     
     this.timer++;
     if (this.isGameOn === true){
@@ -52,4 +52,3 @@ gameLoop = () => {
 
 }
 
-}

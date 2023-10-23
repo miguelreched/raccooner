@@ -1,13 +1,13 @@
 class Coche{
-    constructor(yPos){
+    constructor(type){
         this.car = document.createElement("img")
-        if (this.yPos === "245") {
+        if (this.type === "0") {
             this.car.src = "/images/coche1.png"
         }
-        else if (this.yPos === "220") {
+        else if (this.type === "1") {
             this.car.src = "images/coche2.png"
         }
-        else if (this.yPos === "200") {
+        else if (this.type === "2") {
             this.car.src ="images/coche3.png"
         }
         gameBox.append(this.car)
@@ -15,7 +15,7 @@ class Coche{
         this.w = 1;
         this.y = 1;
         this.x = 0;
-        this.y = yPos;
+
 
         this.car.style.width = `${this.w}px`
         this.car.style.height = `${this.h}px`
