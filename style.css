@@ -36,6 +36,15 @@ body {
     background-size: cover;
   
   }
+
+  #Instructions {
+    display: none;
+    flex-direction: column;
+    justify-content: left;
+    align-items: center;
+    margin: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
   
   
   #game-screen, #gameover-screen, #win-screen {

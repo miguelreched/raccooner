@@ -4,12 +4,15 @@ let gameScreen = document.querySelector("#game-screen");
 let gameBox = document.querySelector("#game-box");
 let gameOverScreen = document.querySelector("#gameover-screen");
 let winScreen = document.querySelector("#win-screen");
+let instruction = document.querySelector("#instructions")
 
 let gameObject;
 
 const startGame = () => {
   firstScreen.style.display = "none";
   gameScreen.style.display = "flex";
+  instruction.style.display = "none";
+
 
   gameObject = new Game();
   gameObject.gameLoop();

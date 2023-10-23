@@ -1,6 +1,5 @@
 class Coche {
-  constructor(type , altura) {
-
+  constructor(type, altura) {
     this.car = document.createElement("img");
     if (type === 0) {
       this.car.src = "./images/coche1.png";
@@ -10,28 +9,13 @@ class Coche {
       this.car.src = "./images/coche3.png";
     }
 
-    if (altura === 185){
-        this.y = 185;
+    this.y = altura;
 
-    }
-    else if (altura === 235){
-        this.y = 235;
-
-    }
-    else if (altura === 285){
-        this.y = 285;
-
-    }
-
-
-
-
-    
     gameBox.append(this.car);
 
     this.w = 70;
     this.h = 40;
-    this.y = 185;
+
     this.x = 0;
 
     this.car.style.width = `${this.w}px`;
@@ -52,6 +36,4 @@ class Coche {
     this.x -= this.carSpeed;
     this.rac.style.top = `${this.y}px`;
   };
-  
 }
-
