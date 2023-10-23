@@ -5,6 +5,7 @@ class Game {
     this.isGameOn = true;
     this.obstacle = new Coche()
     this.cochesArr = [];
+    this.troncoFriend = new Troncos()
   }
 
   troncosAppear = () => {
@@ -56,6 +57,7 @@ class Game {
     this.cochesAppear();
     this.cochesDisapp();
     this.obstacle.automaticMovement()
+    this.troncoFriend.troncoMov()
 
 
     this.timer++;
