@@ -1,5 +1,5 @@
 class Coche{
-    constructor(type, yPos){
+    constructor(yPos){
         this.car = document.createElement("img")
         if (this.yPos === "245") {
             this.car.src = "/images/coche1.png"

@@ -1,7 +1,7 @@
 class Game {
     constructor(){
     this.cochesArr = []
-    this.rac = new Mapache()
+    this.mapache = new Mapache()
     this.timer = 0;
     this.isGameOn = true;
     this.obstacle = new Coche()
@@ -24,7 +24,7 @@ cochesDisapp = () => {
     }
 }
 winMap = () => {
-if (this.pollito.exeY < 0){
+if (this.mapache.exeY < 0){
     this.isGameOn = false;
     winScreen.style.display = "flex"
     gameScreen.style.display = "none"

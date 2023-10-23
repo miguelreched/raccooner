@@ -1,8 +1,8 @@
 class Mapache {
     constructor (){
-    this.raccoon = document.createElement("img");
-    this.raccoon.src = "/images/player-cross.png"
-    gameBox.append(this.raccoon);
+    this.mapache = document.createElement("img");
+    this.mapache.src = "/images/player-cross.png"
+    gameBox.append(this.mapache);
 // tamaño
     this.w = 1;
     this.h = 1;
@@ -10,20 +10,21 @@ class Mapache {
     this.x = 275;
     this.y = 350;
 // DOM pos
-    this.raccoon.style.width = `${this.w}px!important`
-    this.raccoon.style.height = `${this.h}px!important`
-    this.raccoon.style.position = "absolute";
-    this.raccoon.style.top = `${this.y}px`
-    this.raccoon.style.left = `${this.x}px`
-// salto raccoon
+    this.mapache.style.width = `${this.w}px!important`
+    this.mapache.style.height = `${this.h}px!important`
+    this.mapache.style.position = "absolute";
+    this.mapache.style.top = `${this.y}px`
+    this.mapache.style.left = `${this.x}px`
+// salto Mapache
     this.saltoMap = 20;
     this.giroMapLeft = 20;
     this.giroMapRight = 20;
     }
-    jump = () => {
-
+jump = () => {
+        if (this.y > this.saltoMap){
         this.y -= this.saltoMap
-        this.node.style.top = `${this.y}px`
+        this.mapache.style.top = `${this.y}px`
+        }
 }
 
 movLeft = () =>{
