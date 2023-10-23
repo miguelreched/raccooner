@@ -19,14 +19,14 @@ startButton.addEventListener("click", startGame);
 
 document.addEventListener("keydown", (event) => {
   if (event.code === "ArrowUp") {
-    console.log("intentando salto");
+
     gameObject.mapache.jump();
   } else if (event.code === "ArrowLeft") {
-    console.log("intentando izquierda");
+
 
     gameObject.mapache.movLeft();
   } else if (event.code === "ArrowRight") {
-    console.log("intentando derecha");
+
     gameObject.mapache.movRight();
   }
   else if (event.code === "ArrowDown") {

@@ -7,7 +7,12 @@ class Game {
     this.cochesArr = [];
   }
 
-  
+  troncosAppear = () => {
+    if (this.timer % 60 === 0){
+        let troncoLeft = new Troncos()
+        
+    }
+  }
 
   cochesAppear = () => {
     if (this.timer % 60 === 0) {
@@ -15,27 +20,16 @@ class Game {
     //   let type0 = this.x = 185;
     //   let type1 = this.x = 235;
     //   let type2 = this.x = 285;
-    const alturaArr = [185, 235, 285];
-    let alturaRandom = alturaArr[Math.floor(Math.random() * alturaArr.length)];
+        const alturaArr = [185, 235, 285];
+        let alturaRandom = alturaArr[Math.floor(Math.random() * alturaArr.length)];
     
-    if (alturaRandom === alturaArr[0]){
-    return type === 1}
+        let randomPosition = Math.floor(Math.random()*3) ;
 
-    else if (alturaRandom === alturaArr[1]){
-    return type ===2}  
-    
-    else {
-        return type ===3
-    }
+        let cocheLeft = new Coche(randomPosition, alturaRandom);
+          this.cochesArr.push(cocheLeft);
 }
-
-    //   let randomPosition = Math.floor(Math.random()*3) ;
-    //   console.log(randomPosition)
-      let cocheLeft = new Coche(alturaRandom);
-      this.cochesArr.push(cocheLeft);
-
     }
-  };
+  
 
   cochesDisapp = () => {
     if (this.cochesArr.x < 600) {
@@ -55,6 +49,7 @@ class Game {
     this.isGameOn = false;
     gameScreen.style.display = "none";
     gameOverScreen.style.display = "flex";
+    
   };
 
   gameLoop = () => {
@@ -69,3 +64,4 @@ class Game {
     }
   };
 
+}

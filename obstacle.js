@@ -1,7 +1,6 @@
 class Coche {
-  constructor(type) {
+  constructor(type , altura) {
 
-    console.log(type)
     this.car = document.createElement("img");
     if (type === 0) {
       this.car.src = "./images/coche1.png";
@@ -10,6 +9,21 @@ class Coche {
     } else if (type === 2) {
       this.car.src = "./images/coche3.png";
     }
+
+    if (altura === 185){
+        this.y = 185;
+
+    }
+    else if (altura === 235){
+        this.y = 235;
+
+    }
+    else if (altura === 285){
+        this.y = 285;
+
+    }
+
+
 
 
     

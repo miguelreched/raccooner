@@ -31,7 +31,7 @@ body {
     user-select: none; 
     position: relative;
   
-    background-image: url(/images/fondo_raccooner.jpg);
+    background-image: url(./images/fondo_raccooner.jpg);
     background-position: center;
     background-size: cover;
   
