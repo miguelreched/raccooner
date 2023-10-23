@@ -10,45 +10,24 @@ class Game {
   }
 
   troncosAppear = () => {
-    // if (this.timer % 60 === 0) {
-    // // let troncoMovimiento = new Troncos()
-    //   const alturaTronArr = [120, 160];
-    //   let troncoAle =
-    //     alturaTronArr[Math.floor(Math.random() * alturaTronArr.length)];
-    //     let troncoL = new Troncos(troncoAle);
-        
-    //     this.troncoArr.push(troncoL);
-    //   }
-
-
       if (this.timer % 60 === 0) {
-        const alturaTroncoArr = [120, 160];
+        const alturaTroncoArr = [50, 90];
         let alturaTroncoRandom =
         alturaTroncoArr[Math.floor(Math.random() * alturaTroncoArr.length)];
-  
 
-  
         let troncosIzq = new Troncos (alturaTroncoRandom);
         this.troncoArr.push(troncosIzq);
   
       }
-
-
   };
-
   troncosDisapp = () => {
     if (this.cochesArr.x < 600) {
       this.cochesArr.car.remove();
       this.cochesArr.shift();
   }
 }
-
   cochesAppear = () => {
     if (this.timer % 80 === 0) {
-      // if ()
-      //   let type0 = this.x = 185;
-      //   let type1 = this.x = 235;
-      //   let type2 = this.x = 285;
       const alturaArr = [185, 235, 285];
       let alturaRandom =
         alturaArr[Math.floor(Math.random() * alturaArr.length)];
@@ -57,7 +36,6 @@ class Game {
 
       let cocheLeft = new Coche(randomPosition, alturaRandom);
       this.cochesArr.push(cocheLeft);
-
     }
   };
 
@@ -84,6 +62,7 @@ class Game {
   gameLoop = () => {
     this.cochesAppear();
     this.cochesDisapp();
+    this.troncosAppear();
     this.cochesArr.forEach((eachCoche) => {
       eachCoche.automaticMovement();
     });
