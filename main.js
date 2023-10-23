@@ -18,7 +18,7 @@ const startGame = () => {
 startButton.addEventListener("click", startGame);
 
 document.addEventListener("keydown", (event) => {
-  if (event.code === "Space") {
+  if (event.code === "ArrowUp") {
     console.log("intentando salto");
     gameObject.mapache.jump();
   } else if (event.code === "ArrowLeft") {
@@ -28,5 +28,8 @@ document.addEventListener("keydown", (event) => {
   } else if (event.code === "ArrowRight") {
     console.log("intentando derecha");
     gameObject.mapache.movRight();
+  }
+  else if (event.code === "ArrowDown") {
+    gameObject.mapache.movDown();
   }
 });

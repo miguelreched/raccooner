@@ -39,4 +39,10 @@ class Mapache {
     this.mapache.style.left = `${this.x}px`;
     // }
   };
+  movDown = () => {
+    if (this.y > this.saltoMap) {
+        this.y += this.saltoMap;
+      this.mapache.style.top = `${this.y}px`;
+    }
+  }
 }
