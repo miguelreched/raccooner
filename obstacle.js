@@ -32,8 +32,8 @@ class Coche {
     this.car.style.left = `${this.x}px`;
   };
 
-  collisionCar = () => {
-    this.x -= this.carSpeed;
-    this.rac.style.top = `${this.y}px`;
-  };
+//   collisionCar = () => {
+//     this.x -= this.carSpeed;
+//     this.rac.style.top = `${this.y}px`;
+//   };
 }

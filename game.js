@@ -12,10 +12,13 @@ class Game {
   troncosAppear = () => {
       if (this.timer % 60 === 0) {
         const alturaTroncoArr = [50, 90];
+        const posicionArr = [0,600];
         let alturaTroncoRandom =
         alturaTroncoArr[Math.floor(Math.random() * alturaTroncoArr.length)];
 
-        let troncosIzq = new Troncos (alturaTroncoRandom);
+        let posicionRandom = posicionArr[Math.floor(Math.random() * posicionArr.length)];
+
+        let troncosIzq = new Troncos (alturaTroncoRandom, posicionRandom);
         this.troncoArr.push(troncosIzq);
   
       }
@@ -38,6 +41,24 @@ class Game {
       this.cochesArr.push(cocheLeft);
     }
   };
+
+  // colision
+  colisionCar = () => {
+    this.cochesArr.forEach((eachObstacle)=> {
+      if (
+        eachObstacle.x < this.mapache.x + this.mapache.w &&
+        eachObstacle.x + eachObstacle.w > this.mapache.x &&
+        eachObstacle.y < this.mapache.y + this.mapache.h &&
+        eachObstacle.y + eachObstacle.h > this.mapache.y
+      ){
+        console.log("estrellado")
+        this.gameOver()
+      }
+
+    })
+
+
+  }
 
   cochesDisapp = () => {
     if (this.cochesArr.x < 600) {
@@ -63,12 +84,15 @@ class Game {
     this.cochesAppear();
     this.cochesDisapp();
     this.troncosAppear();
+    this.troncosDisapp();
     this.cochesArr.forEach((eachCoche) => {
       eachCoche.automaticMovement();
     });
     this.troncoArr.forEach((eachTronco) => {
       eachTronco.troncoMov();
-    })
+    });
+    this.colisionCar()
+
   
 
     this.timer++;

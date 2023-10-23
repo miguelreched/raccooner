@@ -1,4 +1,5 @@
 let startButton = document.querySelector("#start-btn");
+let reStartButton = document.querySelector("#restart-btn");
 let firstScreen = document.querySelector("#first-screen");
 let gameScreen = document.querySelector("#game-screen");
 let gameBox = document.querySelector("#game-box");
@@ -18,6 +19,17 @@ const startGame = () => {
   gameObject.gameLoop();
 };
 
+// const reStartGame = () => {
+//   firstScreen.style.display = "none";
+//   gameScreen.style.display = "flex";
+//   instruction.style.display = "none";
+
+
+//   gameObject = new Game();
+//   gameObject.gameLoop();
+// };
+
+// reStartButton.addEventListener("click", reStartGame);
 startButton.addEventListener("click", startGame);
 
 document.addEventListener("keydown", (event) => {
