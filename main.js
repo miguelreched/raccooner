@@ -12,24 +12,27 @@ let gameObject;
 const startGame = () => {
   firstScreen.style.display = "none";
   gameScreen.style.display = "flex";
-  instruction.style.display = "none";
+  instruction.style.display = "flex";
+  winScreen.style.display = "none"
+
 
 
   gameObject = new Game();
   gameObject.gameLoop();
 };
 
-// const reStartGame = () => {
-//   firstScreen.style.display = "none";
-//   gameScreen.style.display = "flex";
-//   instruction.style.display = "none";
+const reStartGame = () => {
+  firstScreen.style.display = "none";
+  gameScreen.style.display = "flex";
+  instruction.style.display = "none";
+  gameOverScreen.style.display ="none";
+  gameBox.innerHTML = "";
+  gameObject = new Game();
+  gameObject.gameLoop();
+};
 
 
-//   gameObject = new Game();
-//   gameObject.gameLoop();
-// };
-
-// reStartButton.addEventListener("click", reStartGame);
+reStartButton.addEventListener("click", reStartGame);
 startButton.addEventListener("click", startGame);
 
 document.addEventListener("keydown", (event) => {

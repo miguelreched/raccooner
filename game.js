@@ -9,18 +9,35 @@ class Game {
     this.troncoArr = [];
   }
 
-  troncosAppear = () => {
-      if (this.timer % 60 === 0) {
-        const alturaTroncoArr = [50, 90];
-        const posicionArr = [0,600];
-        let alturaTroncoRandom =
-        alturaTroncoArr[Math.floor(Math.random() * alturaTroncoArr.length)];
+  troncosAppearLeft = () => {
+      if (this.timer % 100 === 0) {
+        posicionArr ["left", "right"]
 
-        let posicionRandom = posicionArr[Math.floor(Math.random() * posicionArr.length)];
 
-        let troncosIzq = new Troncos (alturaTroncoRandom, posicionRandom);
-        this.troncoArr.push(troncosIzq);
+
+
+        let posicionArray = posicionArr[Math.floor(Math.random() * posicionArr.length)];
+
+        let troncosLeft = new Troncos (posicionArray);
+        this.troncoArr.push(troncosLeft);
+
+
+
   
+      }
+    }
+      troncosAppearRight = () => {
+        if (this.timer % 150 === 0){
+          posicionArr2 ["right", "left"]
+
+
+
+          let posicionArray2 = posicionArr2[Math.floor(Math.random() * posicionArr2)];
+  
+          let troncosRight = new Troncos (posicionArray2);
+          this.troncoArr.push(troncosRight);
+
+        }
       }
   };
   troncosDisapp = () => {
@@ -30,7 +47,7 @@ class Game {
   }
 }
   cochesAppear = () => {
-    if (this.timer % 80 === 0) {
+    if (this.timer % 70 === 0) {
       const alturaArr = [185, 235, 285];
       let alturaRandom =
         alturaArr[Math.floor(Math.random() * alturaArr.length)];
@@ -68,10 +85,12 @@ class Game {
   };
 
   winMap = () => {
-    if (this.mapache.exeY < 0) {
+    if (this.mapache.y <= 0) {
       this.isGameOn = false;
       winScreen.style.display = "flex";
       gameScreen.style.display = "none";
+      instruction.style.display = "none"
+      startButton.style.display = "flex"
     }
   };
   gameOver = () => {
@@ -83,7 +102,8 @@ class Game {
   gameLoop = () => {
     this.cochesAppear();
     this.cochesDisapp();
-    this.troncosAppear();
+    this.troncosAppearRight();
+    this.troncosAppearLeft();
     this.troncosDisapp();
     this.cochesArr.forEach((eachCoche) => {
       eachCoche.automaticMovement();
@@ -92,6 +112,7 @@ class Game {
       eachTronco.troncoMov();
     });
     this.colisionCar()
+    this.winMap()
 
   
 
@@ -100,4 +121,4 @@ class Game {
       requestAnimationFrame(this.gameLoop);
     }
   };
-}
+

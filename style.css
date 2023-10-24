@@ -47,13 +47,15 @@ body {
   
   }
 
-  #Instructions {
+  #instructions {
     display: none;
-    flex-direction: column;
-    justify-content:flex-start;
+    flex-direction:column;
+    justify-content:center;
     align-items: center;
     margin: 20px;
-    font-family:sans-serif
+    font-family: 'Luckiest Guy', cursive;
+    line-height : 25px;
+    
   }
   
   

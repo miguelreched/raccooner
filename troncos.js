@@ -1,15 +1,22 @@
 class Troncos {
-  constructor(altura, posicion) {
+  constructor(type) {
+
     this.tronco = document.createElement("img");
     this.tronco.src = "/images/tronco.png";
+    if (type === "left"){
+        this.x = 0;
+    }
+    else if(type === "right"){
+        this.x = 600;
+    }
     
-    this.y = altura;
+    this.y = 90;
     
     gameBox.append(this.tronco);
     
     this.w = 120;
     this.h = 40;
-    this.x = posicion;
+    this.x = type;
     
     this.tronco.style.width = `${this.w}px`;
     this.tronco.style.height = `${this.h}px`;
