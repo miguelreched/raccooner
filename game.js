@@ -3,9 +3,9 @@ class Game {
     this.mapache = new Mapache();
     this.timer = 0;
     this.isGameOn = true;
-    this.obstacle = new Coche();
+    // this.obstacle = new Coche();
     this.cochesArr = [];
-    this.tronco = new Troncos();
+    // this.tronco = new Troncos();
     this.troncoArrLeft = [];
     this.troncoArrRight = [];
   }
@@ -15,10 +15,7 @@ class Game {
     if (this.timer % 100 === 0) {
       let troncosLeft = new Troncos("left");
       this.troncoArrLeft.push(troncosLeft);
-      this.x = 0;
-      this.troncoSpeed = 2;
-      this.y = 50;
-      console.log(troncosLeft)
+
 
     }
   };
@@ -27,13 +24,13 @@ class Game {
     if (this.timer % 150 === 0) {
       let troncosRight = new Troncos("right");
       this.troncoArrLeft.push(troncosRight);
-      this.x = 600;
-      this.troncoSpeed = -3;
-      this.y = 90;
-      console.log(troncosRight)
+
 
     }
   };
+
+  
+
 troncosDisapp = () => {
   if (this.cochesArr.x < 600) {
     this.cochesArr.car.remove();
@@ -51,6 +48,13 @@ cochesAppear = () => {
     this.cochesArr.push(cocheLeft);
   }
 };
+
+mapacheTronco = () => {
+  if (this.tronco.y + 40 <= this.mapache){
+      console.log("toca mapache")
+  }
+
+}
 
 // colision
 colisionCar = () => {
@@ -75,12 +79,12 @@ cochesDisapp = () => {
 };
 
 winMap = () => {
-  if (this.mapache.y <= 0) {
+  if (this.mapache.y < 0) {
     this.isGameOn = false;
     winScreen.style.display = "flex";
     gameScreen.style.display = "none";
     instruction.style.display = "none";
-    startButton.style.display = "flex";
+
   }
 };
 gameOver = () => {
@@ -95,6 +99,7 @@ gameLoop = () => {
   this.troncosAppearRight();
   this.troncosAppearLeft();
   this.troncosDisapp();
+  this.mapacheTronco();
   this.cochesArr.forEach((eachCoche) => {
     eachCoche.automaticMovement();
   });
@@ -107,7 +112,7 @@ gameLoop = () => {
   });
 
   this.colisionCar();
-  this.winMap();
+  this.winMap(reLoad);
 
   this.timer++;
   if (this.isGameOn === true) {

@@ -13,7 +13,7 @@ class Troncos {
       this.y = 90;
     }
 
-    this.y = 90;
+
 
     gameBox.append(this.tronco);
 
@@ -27,8 +27,10 @@ class Troncos {
     this.tronco.style.left = `${this.x}px`;
     this.tronco.style.top = `${this.y}px`;
 
-    this.troncoSpeed = 2;
+
   }
+
+
 
   troncoMov = () => {
     this.x += this.troncoSpeed;

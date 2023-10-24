@@ -18,12 +18,13 @@ class Mapache {
     // salto Mapache
     this.saltoMap = 20;
     this.giroMap = 20;
+    this.mapache.style.zIndex = 1;
   }
   jump = () => {
-    if (this.y > this.saltoMap) {
+
       this.y -= this.saltoMap;
       this.mapache.style.top = `${this.y}px`;
-    }
+    
   };
 
   movLeft = () => {

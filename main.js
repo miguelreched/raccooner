@@ -31,6 +31,13 @@ const reStartGame = () => {
   gameObject.gameLoop();
 };
 
+const reLoad = () => {
+  gameScreen.style.display = "flex";
+  gameBox.innerHTML = "";
+  gameObject = new Game();
+  gameObject.gameLoop();
+}
+
 
 reStartButton.addEventListener("click", reStartGame);
 startButton.addEventListener("click", startGame);
