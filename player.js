@@ -1,5 +1,6 @@
 class Mapache {
   constructor() {
+    this.isOnTronco = false;
     this.mapache = document.createElement("img");
     this.mapache.src = "/images/player-cross.png";
     gameBox.append(this.mapache);
@@ -41,9 +42,9 @@ class Mapache {
     // }
   };
   movDown = () => {
-    if (this.y > this.saltoMap) {
+
       this.y += this.saltoMap;
       this.mapache.style.top = `${this.y}px`;
-    }
+
   };
 }

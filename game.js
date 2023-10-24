@@ -8,6 +8,8 @@ class Game {
     // this.tronco = new Troncos();
     this.troncoArrLeft = [];
     this.troncoArrRight = [];
+    this.score = 0;
+    this.lives = 3;
   }
 
   troncosAppearLeft = () => {
@@ -30,13 +32,32 @@ class Game {
   };
 
   
-
-troncosDisapp = () => {
-  if (this.cochesArr.x < 600) {
-    this.cochesArr.car.remove();
-    this.cochesArr.shift();
-  }
+//tronco dispa derecho
+troncosDisappLeft = () => {
+  if (this.troncoArrLeft.x < 600) {
+    this.troncoArrLeft.tronco.remove();
+    this.troncoArrLeft.shift();
+}
 };
+
+
+troncosDisappRight = () => {
+  if (this.troncoArrRight.x <0) {
+    this.troncoArrRight.tronco.remove();
+    this.troncoArrRight.shift();
+}
+};
+isMapacheDrowning = () => {
+
+  if (this.mapache.y >= 50 && this.mapache.y <= 120 && this.mapache.isOnTronco === true){
+    this.mapache.isOnTronco = true;
+  }
+  else if (this.mapache.y >= 50 && this.mapache.y <= 120 && this.mapache.isOnTronco === false){
+    this.gameOver();
+  }
+
+}
+
 cochesAppear = () => {
   if (this.timer % 80 === 0) {
     const alturaArr = [185, 235, 285];
@@ -49,11 +70,24 @@ cochesAppear = () => {
   }
 };
 
-mapacheTronco = () => {
-  if (this.tronco.y + 40 <= this.mapache){
-      console.log("toca mapache")
-  }
 
+
+mapacheTronco = () => {
+  this.mapache.isOnTronco = false; //asumimos que el mapache no esta colisionando 
+  this.troncoArrLeft.forEach((eachTronco)=> {
+    if (
+      eachTronco.x < this.mapache.x + this.mapache.w &&
+      eachTronco.x + eachTronco.w > this.mapache.x &&
+      eachTronco.y < this.mapache.y + this.mapache.h &&
+      eachTronco.y + eachTronco.h > this.mapache.y
+    ) {
+      this.mapache.isOnTronco = true;
+
+    }
+   
+
+  })
+// console.log(this.mapache.isOnTronco)
 }
 
 // colision
@@ -79,11 +113,19 @@ cochesDisapp = () => {
 };
 
 winMap = () => {
-  if (this.mapache.y < 0) {
-    this.isGameOn = false;
-    winScreen.style.display = "flex";
-    gameScreen.style.display = "none";
-    instruction.style.display = "none";
+  if (this.mapache.y+40 <= 0) {
+    // this.isGameOn = false;
+    // winScreen.style.display = "flex";
+    // gameScreen.style.display = "none";
+    // instruction.style.display = "none";
+    // reStartButton.style.display = "flex";
+    // firstScreen.style.display = "none";
+    // gameScreen.style.display = "flex";
+    // instruction.style.display = "none";
+    // gameOverScreen.style.display ="none";
+    // gameBox.innerHTML = "";
+    // gameObject = new Game();
+    // gameObject.gameLoop();
 
   }
 };
@@ -98,8 +140,10 @@ gameLoop = () => {
   this.cochesDisapp();
   this.troncosAppearRight();
   this.troncosAppearLeft();
-  this.troncosDisapp();
+  this.troncosDisappLeft();
+  this.troncosDisappRight
   this.mapacheTronco();
+  this.isMapacheDrowning();
   this.cochesArr.forEach((eachCoche) => {
     eachCoche.automaticMovement();
   });
