@@ -24,7 +24,7 @@ class Coche {
     this.car.style.left = `${this.x}px`;
     this.car.style.top = `${this.y}px`;
 
-    this.carSpeed = 2;
+    this.carSpeed = 2.5;
   }
 
   automaticMovement = () => {
