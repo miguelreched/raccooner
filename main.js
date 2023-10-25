@@ -6,6 +6,8 @@ let gameBox = document.querySelector("#game-box");
 let gameOverScreen = document.querySelector("#gameover-screen");
 let winScreen = document.querySelector("#win-screen");
 let instruction = document.querySelector("#instructions")
+let scoreNode = document.querySelector("#score")
+let scoreNumber = document.querySelector("#score-number")
 
 let gameObject;
 

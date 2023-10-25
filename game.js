@@ -9,7 +9,7 @@ class Game {
     this.troncoArrLeft = [];
     this.troncoArrRight = [];
     this.score = 0;
-    this.lives = 3;
+    // this.lives = 3;
   }
 
   troncosAppearLeft = () => {
@@ -49,10 +49,10 @@ troncosDisappRight = () => {
 };
 isMapacheDrowning = () => {
 
-  if (this.mapache.y >= 50 && this.mapache.y <= 120 && this.mapache.isOnTronco === true){
-    this.mapache.isOnTronco = true;
-  }
-  else if (this.mapache.y >= 50 && this.mapache.y <= 120 && this.mapache.isOnTronco === false){
+  // if (this.mapache.y >= 20 && this.mapache.y <= 120 && this.mapache.isOnTronco === true){
+  //   this.mapache.isOnTronco = true;
+  // }
+   if (this.mapache.y >= 20 && this.mapache.y <= 120 && this.mapache.isOnTronco === false){
     this.gameOver();
   }
 
@@ -112,14 +112,16 @@ cochesDisapp = () => {
   }
 };
 
-winMap = () => {
-  if (this.mapache.y+40 <= 0) {
-    // this.score++;
-    // this.cochesArr = []
-    // this.troncoArrLeft = []
-    // this.troncoArrRight = [];
-    // this.mapache.style.top = `${this.mapache.y}px`;
-    // this.mapache.style.left = `${this.mapache.x}px`;
+volverAEmpezar = () => {
+  if (this.mapache.y <= 0) {
+    this.cochesArr = []
+    this.troncoArrLeft = []
+    this.troncoArrRight = [];
+    this.mapache.x = 275;
+    this.mapache.y = 350;
+    this.mapache.style.top = `${this.mapache.y}px`;
+    this.mapache.style.left = `${this.mapache.x}px`;
+    this.score++;
   }
 };
 gameOver = () => {
@@ -149,7 +151,7 @@ gameLoop = () => {
   });
 
   this.colisionCar();
-  this.winMap(reLoad);
+  // this.winMap(reLoad);
 
   this.timer++;
   if (this.isGameOn === true) {

@@ -24,6 +24,16 @@ body {
   margin-left: 50px;
 }
 
+#score {
+  color: black;
+  padding: 0px;
+  font-size: 18px;
+
+  border-radius: 6px;
+  margin-left: 20px;
+  font-family: 'Luckiest Guy', cursive;
+}
+
 .container {
     display: flex;
     flex-direction: column;
