@@ -11,7 +11,7 @@ class Coche {
 
     this.y = altura;
 
-    this.difSpeed = difSpeed;
+    this.dificultyCarSpeed = difSpeed;
 
     gameBox.append(this.node);
 

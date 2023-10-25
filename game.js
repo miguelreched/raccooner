@@ -70,6 +70,7 @@ cochesAppear = () => {
 
     
     let cocheLeft = new Coche(randomPosition, alturaRandom);
+    // console.log(cocheLeft.dificultyCarSpeed )
     this.cochesArr.push(cocheLeft);
   }
 };

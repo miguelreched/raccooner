@@ -31,6 +31,9 @@ const reStartGame = () => {
   gameBox.innerHTML = "";
   gameObject = new Game();
   gameObject.gameLoop();
+  scoreNumber.innerHTML = 0
+
+
   
 //   // scoreNode.style.display = "flex"
 //   // scoreNumber.style.display = "flex"
@@ -46,6 +49,8 @@ const reLoad = () => {
 
 reStartButton.addEventListener("click", reStartGame);
 startButton.addEventListener("click", startGame);
+// scoreNumber.addEventListener("click", reStartGame)
+
 
 document.addEventListener("keydown", (event) => {
   if (event.code === "ArrowUp") {
