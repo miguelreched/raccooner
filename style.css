@@ -1,6 +1,7 @@
 body {
     margin: 0; 
-    background-color: rgb(255, 255, 255)
+    background: rgb(248,248,252);
+    background: linear-gradient(90deg, rgba(248,248,252,1) 0%, rgba(255,255,255,1) 0%, rgba(215,215,215,1) 100%);
 }
 
 #start-btn {
@@ -44,7 +45,7 @@ body {
     background-image: url(./images/fondo_raccooner.jpg);
     background-position: center;
     background-size: cover;
-
+    box-shadow: 5px 5px 10px  white ;
   
   }
 

@@ -2,7 +2,7 @@ class Mapache {
   constructor() {
     this.isOnTronco = false;
     this.mapache = document.createElement("img");
-    this.mapache.src = "/images/player-cross.png";
+    this.mapache.src = "./images/player-cross.png";
     gameBox.append(this.mapache);
     // tamaño
     this.w = 40;

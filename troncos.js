@@ -2,7 +2,7 @@ class Troncos {
   constructor(type) {
     this.type = type
     this.tronco = document.createElement("img");
-    this.tronco.src = "/images/tronco.png";
+    this.tronco.src = "./images/tronco.png";
     if (this.type === "left") {
       this.x = 0;
       this.troncoSpeed = 2;

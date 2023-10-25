@@ -114,19 +114,12 @@ cochesDisapp = () => {
 
 winMap = () => {
   if (this.mapache.y+40 <= 0) {
-    // this.isGameOn = false;
-    // winScreen.style.display = "flex";
-    // gameScreen.style.display = "none";
-    // instruction.style.display = "none";
-    // reStartButton.style.display = "flex";
-    // firstScreen.style.display = "none";
-    // gameScreen.style.display = "flex";
-    // instruction.style.display = "none";
-    // gameOverScreen.style.display ="none";
-    // gameBox.innerHTML = "";
-    // gameObject = new Game();
-    // gameObject.gameLoop();
-
+    // this.score++;
+    // this.cochesArr = []
+    // this.troncoArrLeft = []
+    // this.troncoArrRight = [];
+    // this.mapache.style.top = `${this.mapache.y}px`;
+    // this.mapache.style.left = `${this.mapache.x}px`;
   }
 };
 gameOver = () => {
