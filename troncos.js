@@ -1,8 +1,8 @@
 class Troncos {
   constructor(type) {
     this.type = type
-    this.tronco = document.createElement("img");
-    this.tronco.src = "./images/tronco.png";
+    this.node = document.createElement("img");
+    this.node.src = "./images/tronco.png";
     if (this.type === "left") {
       this.x = 0;
       this.troncoSpeed = 2;
@@ -15,17 +15,17 @@ class Troncos {
 
 
 
-    gameBox.append(this.tronco);
+    gameBox.append(this.node);
 
     this.w = 120;
     this.h = 40;
 
 
-    this.tronco.style.width = `${this.w}px`;
-    this.tronco.style.height = `${this.h}px`;
-    this.tronco.style.position = "absolute";
-    this.tronco.style.left = `${this.x}px`;
-    this.tronco.style.top = `${this.y}px`;
+    this.node.style.width = `${this.w}px`;
+    this.node.style.height = `${this.h}px`;
+    this.node.style.position = "absolute";
+    this.node.style.left = `${this.x}px`;
+    this.node.style.top = `${this.y}px`;
 
 
   }
@@ -34,7 +34,7 @@ class Troncos {
 
   troncoMov = () => {
     this.x += this.troncoSpeed;
-    this.tronco.style.left = `${this.x}px`;
+    this.node.style.left = `${this.x}px`;
   };
 
 //   troncoMovRight = () => {

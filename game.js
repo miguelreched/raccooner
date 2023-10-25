@@ -1,6 +1,7 @@
 class Game {
   constructor() {
     this.mapache = new Mapache();
+
     this.timer = 0;
     this.isGameOn = true;
     // this.obstacle = new Coche();
@@ -10,71 +11,72 @@ class Game {
     this.troncoArrRight = [];
     this.score = 0;
     // this.lives = 3;
+    this.dificultyCarSpeed = 2.5;
   }
 
   troncosAppearLeft = () => {
-
     if (this.timer % 100 === 0) {
       let troncosLeft = new Troncos("left");
       this.troncoArrLeft.push(troncosLeft);
-
-
-    }
-  };
-  troncosAppearRight = () => {
-
-    if (this.timer % 150 === 0) {
-      let troncosRight = new Troncos("right");
-      this.troncoArrLeft.push(troncosRight);
-
-
     }
   };
 
-  
+troncosAppearRight = () => {
+  if (this.timer % 135 === 0) {
+    let troncosRight = new Troncos("right");
+    this.troncoArrRight.push(troncosRight);
+  }
+};
+
 //tronco dispa derecho
 troncosDisappLeft = () => {
-  if (this.troncoArrLeft.x < 600) {
-    this.troncoArrLeft.tronco.remove();
-    this.troncoArrLeft.shift();
-}
+  // a solucionar luego, funciona no hace nada
+  if (this.troncoArrLeft.length !== 0) {
+    if (this.troncoArrLeft[0].x > 600) {
+
+      this.troncoArrLeft[0].node.remove();
+      this.troncoArrLeft.shift();
+    }
+  }
 };
-
-
 troncosDisappRight = () => {
-  if (this.troncoArrRight.x <0) {
-    this.troncoArrRight.tronco.remove();
-    this.troncoArrRight.shift();
-}
+  if (this.troncoArrRight.length !== 0) {
+    if (this.troncoArrRight[0].x < -120) {
+
+      this.troncoArrRight[0].node.remove();
+      this.troncoArrRight.shift();
+    }
+  }
 };
 isMapacheDrowning = () => {
-
   // if (this.mapache.y >= 20 && this.mapache.y <= 120 && this.mapache.isOnTronco === true){
   //   this.mapache.isOnTronco = true;
   // }
-   if (this.mapache.y >= 20 && this.mapache.y <= 120 && this.mapache.isOnTronco === false){
+  if (
+    this.mapache.y >= 20 &&
+    this.mapache.y <= 120 &&
+    this.mapache.isOnTronco === false
+  ) {
     this.gameOver();
   }
-
-}
+};
 
 cochesAppear = () => {
-  if (this.timer % 80 === 0) {
+  if (this.timer % 70 === 0) {
     const alturaArr = [185, 235, 285];
     let alturaRandom = alturaArr[Math.floor(Math.random() * alturaArr.length)];
 
     let randomPosition = Math.floor(Math.random() * 3);
 
+    
     let cocheLeft = new Coche(randomPosition, alturaRandom);
     this.cochesArr.push(cocheLeft);
   }
 };
 
-
-
 mapacheTronco = () => {
-  this.mapache.isOnTronco = false; //asumimos que el mapache no esta colisionando 
-  this.troncoArrLeft.forEach((eachTronco)=> {
+  this.mapache.isOnTronco = false; //asumimos que el mapache no esta colisionando
+  this.troncoArrLeft.forEach((eachTronco) => {
     if (
       eachTronco.x < this.mapache.x + this.mapache.w &&
       eachTronco.x + eachTronco.w > this.mapache.x &&
@@ -82,13 +84,20 @@ mapacheTronco = () => {
       eachTronco.y + eachTronco.h > this.mapache.y
     ) {
       this.mapache.isOnTronco = true;
-
     }
-   
-
-  })
-// console.log(this.mapache.isOnTronco)
-}
+  });
+  this.troncoArrRight.forEach((eachTronco) => {
+    if (
+      eachTronco.x < this.mapache.x + this.mapache.w &&
+      eachTronco.x + eachTronco.w > this.mapache.x &&
+      eachTronco.y < this.mapache.y + this.mapache.h &&
+      eachTronco.y + eachTronco.h > this.mapache.y
+    ) {
+      this.mapache.isOnTronco = true;
+    }
+  });
+  // console.log(this.mapache.isOnTronco)
+};
 
 // colision
 colisionCar = () => {
@@ -106,28 +115,52 @@ colisionCar = () => {
 };
 
 cochesDisapp = () => {
-  if (this.cochesArr.x < 600) {
-    this.cochesArr.car.remove();
+  if (this.cochesArr.length !== 0) {
+  if (this.cochesArr[0].x > 600) {
+    this.cochesArr[0].node.remove();
     this.cochesArr.shift();
   }
+  }
+
 };
 
 volverAEmpezar = () => {
   if (this.mapache.y <= 0) {
-    this.cochesArr = []
-    this.troncoArrLeft = []
+    // antes de vaciar el array, tienes que irerar por cada elemento del array y borrar cada uno de ellos del DOM (borrar el nodo)
+    this.cochesArr.forEach((eachCar) => {
+      eachCar.node.remove();
+    });
+    this.troncoArrLeft.forEach((eachTroL) => {
+      eachTroL.node.remove();
+    });
+    this.troncoArrRight.forEach((eachTroR) => {
+      eachTroR.node.remove();
+    });
+    this.cochesArr = [];
+    this.troncoArrLeft = [];
     this.troncoArrRight = [];
     this.mapache.x = 275;
     this.mapache.y = 350;
-    this.mapache.style.top = `${this.mapache.y}px`;
-    this.mapache.style.left = `${this.mapache.x}px`;
+    this.mapache.top = `${this.mapache.y}px`;
+    this.mapache.left = `${this.mapache.x}px`;
+
+    
     this.score++;
+    scoreNumber.innerHTML = this.score;
+    
+    
+    
+    this.dificultyCarSpeed += 0.5;
+
+
+
   }
 };
 gameOver = () => {
   this.isGameOn = false;
   gameScreen.style.display = "none";
   gameOverScreen.style.display = "flex";
+  
 };
 
 gameLoop = () => {
@@ -136,9 +169,10 @@ gameLoop = () => {
   this.troncosAppearRight();
   this.troncosAppearLeft();
   this.troncosDisappLeft();
-  this.troncosDisappRight
+  this.troncosDisappRight();
   this.mapacheTronco();
   this.isMapacheDrowning();
+  this.volverAEmpezar();
   this.cochesArr.forEach((eachCoche) => {
     eachCoche.automaticMovement();
   });

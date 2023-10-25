@@ -31,6 +31,9 @@ const reStartGame = () => {
   gameBox.innerHTML = "";
   gameObject = new Game();
   gameObject.gameLoop();
+  
+//   // scoreNode.style.display = "flex"
+//   // scoreNumber.style.display = "flex"
 };
 
 const reLoad = () => {
