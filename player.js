@@ -39,8 +39,8 @@ class Mapache {
     // if (this.x > this.giroMapLeft){
     this.x -= this.giroMap;
     this.node.style.left = `${this.x}px`;
-    this.wMov
-    this.hMov 
+    // this.wMov
+    // this.hMov 
 
 
     this.node.src = "./images/player-left.png";
@@ -52,11 +52,14 @@ class Mapache {
     // if (this.x < this.giroMapRight){
     this.x += this.giroMap;
     this.node.style.left = `${this.x}px`;
-    this.wMov
-    this.wMov
-
-
+    
     this.node.src = "./images/player-rigth.png";
+    this.w = 60;
+    this.h = 35
+    this.node.style.width = `${this.w}px`;
+    this.node.style.height = `${this.h}px`;
+    
+
     gameBox.append(this.node);
     // }
   };

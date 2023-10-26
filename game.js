@@ -171,11 +171,12 @@ gameOver = () => {
   
 };
 
-// sonidoMapache = () => {
-//   if ()
-//   this.audio.src ="./sound/racSound.mp3";
-//   this.audio.volume = 0.1
-// }
+sonidoMapache = () => {
+  if (this.mapache.y > 500)
+  this.audio.src ="./sound/racSound.mp3";
+  this.audio.volume = 0.1
+  this.audio.play()
+}
 
 gameLoop = () => {
   this.cochesAppear();
@@ -187,6 +188,7 @@ gameLoop = () => {
   this.mapacheTronco();
   this.isMapacheDrowning();
   this.volverAEmpezar();
+  this.sonidoMapache();
   
   this.cochesArr.forEach((eachCoche) => {
     eachCoche.automaticMovement();
