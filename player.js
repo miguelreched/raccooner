@@ -7,10 +7,13 @@ class Mapache {
     // tamaño
     this.w = 40;
     this.h = 45;
+    this.wMov = 70;
+    this.hMov = 45;
     // posicion 1
     this.x = 275;
     this.y = 350;
     // DOM pos
+   
     this.node.style.width = `${this.w}px`;
     this.node.style.height = `${this.h}px`;
     this.node.style.position = "absolute";
@@ -25,6 +28,10 @@ class Mapache {
 
       this.y -= this.saltoMap;
       this.node.style.top = `${this.y}px`;
+      this.w = 40;
+      this.h = 45;
+      this.node.src = "./images/player-cross.png";
+      gameBox.append(this.node);
     
   };
 
@@ -32,6 +39,12 @@ class Mapache {
     // if (this.x > this.giroMapLeft){
     this.x -= this.giroMap;
     this.node.style.left = `${this.x}px`;
+    this.wMov
+    this.hMov 
+
+
+    this.node.src = "./images/player-left.png";
+    gameBox.append(this.node);
     // }
   };
 
@@ -39,6 +52,12 @@ class Mapache {
     // if (this.x < this.giroMapRight){
     this.x += this.giroMap;
     this.node.style.left = `${this.x}px`;
+    this.wMov
+    this.wMov
+
+
+    this.node.src = "./images/player-rigth.png";
+    gameBox.append(this.node);
     // }
   };
   movDown = () => {

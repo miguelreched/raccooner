@@ -8,6 +8,7 @@ let winScreen = document.querySelector("#win-screen");
 let instruction = document.querySelector("#instructions")
 let scoreNode = document.querySelector("#score")
 let scoreNumber = document.querySelector("#score-number")
+let botonVol = document.querySelector("#volumen")
 
 let gameObject;
 
@@ -16,10 +17,11 @@ const startGame = () => {
   gameScreen.style.display = "flex";
   instruction.style.display = "flex";
   winScreen.style.display = "none"
-
+  
 
 
   gameObject = new Game();
+  gameObject.audioGeneral();
   gameObject.gameLoop();
 };
 
@@ -30,6 +32,7 @@ const reStartGame = () => {
   gameOverScreen.style.display ="none";
   gameBox.innerHTML = "";
   gameObject = new Game();
+  gameObject.audioGeneral();
   gameObject.gameLoop();
   scoreNumber.innerHTML = 0
 
@@ -49,10 +52,13 @@ const reLoad = () => {
 
 reStartButton.addEventListener("click", reStartGame);
 startButton.addEventListener("click", startGame);
+botonVol.addEventListener("click", this.gameObject.audioGeneral);
+
 // scoreNumber.addEventListener("click", reStartGame)
 
 
 document.addEventListener("keydown", (event) => {
+if (gameObject.timer > 60 ){
   if (event.code === "ArrowUp") {
 
     gameObject.mapache.jump();
@@ -67,4 +73,6 @@ document.addEventListener("keydown", (event) => {
   else if (event.code === "ArrowDown") {
     gameObject.mapache.movDown();
   }
+}
 });
+//crear un condicional qe envuelva en todos los condicionales del addEventListener que solamente se ejecuta cuando el timer del juego sea mayor de un segundo

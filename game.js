@@ -12,6 +12,14 @@ class Game {
     this.score = 0;
     // this.lives = 3;
     this.dificultyCarSpeed = 2.5;
+    this.audio = new Audio ();
+  }
+
+  audioGeneral = () => {
+    let sonidoTrafico = document.querySelector("#sonido")
+    sonidoTrafico.volume = 0.1;
+    // sonidoTrafico.currentTime = 0;
+    sonidoTrafico.play();
   }
 
   troncosAppearLeft = () => {
@@ -67,9 +75,9 @@ cochesAppear = () => {
     let alturaRandom = alturaArr[Math.floor(Math.random() * alturaArr.length)];
 
     let randomPosition = Math.floor(Math.random() * 3);
-
     
-    let cocheLeft = new Coche(randomPosition, alturaRandom);
+    // let cocheLeft = new Coche(randomPosition, alturaRandom,dificultyCarSpeed);
+    let cocheLeft = new Coche(randomPosition, alturaRandom, this.dificultyCarSpeed);
     // console.log(cocheLeft.dificultyCarSpeed )
     this.cochesArr.push(cocheLeft);
   }
@@ -126,7 +134,7 @@ cochesDisapp = () => {
 };
 
 volverAEmpezar = () => {
-  if (this.mapache.y <= 0) {
+  if (this.mapache.y <= -60) {
     // antes de vaciar el array, tienes que irerar por cada elemento del array y borrar cada uno de ellos del DOM (borrar el nodo)
     this.cochesArr.forEach((eachCar) => {
       eachCar.node.remove();
@@ -148,10 +156,12 @@ volverAEmpezar = () => {
     
     this.score++;
     scoreNumber.innerHTML = this.score;
+    this.timer = 0;
     
     
     
     this.dificultyCarSpeed += 0.5;
+   
 
 
 
@@ -174,6 +184,7 @@ gameLoop = () => {
   this.mapacheTronco();
   this.isMapacheDrowning();
   this.volverAEmpezar();
+  
   this.cochesArr.forEach((eachCoche) => {
     eachCoche.automaticMovement();
   });
