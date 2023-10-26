@@ -147,7 +147,7 @@ volverAEmpezar = () => {
     this.troncoArrLeft = [];
     this.troncoArrRight = [];
     this.mapache.x = 275;
-    this.mapache.y = 360;
+    this.mapache.y = 350;
     this.mapache.top = `${this.mapache.y}px`;
     this.mapache.left = `${this.mapache.x}px`;
 
