@@ -13,7 +13,7 @@ class Mapache {
     this.x = 275;
     this.y = 350;
     // DOM pos
-   
+
     this.node.style.width = `${this.w}px`;
     this.node.style.height = `${this.h}px`;
     this.node.style.position = "absolute";
@@ -25,48 +25,49 @@ class Mapache {
     this.node.style.zIndex = 1;
   }
   jump = () => {
-
-      this.y -= this.saltoMap;
-      this.node.style.top = `${this.y}px`;
-      this.w = 40;
-      this.h = 45;
-      this.node.src = "./images/player-cross.png";
-      gameBox.append(this.node);
-    
+    this.node.src = "./images/player-cross.png";
+    this.y -= this.saltoMap;
+    this.node.style.top = `${this.y}px`;
+    this.w = 40;
+    this.h = 45;
+    this.node.style.width = `${this.w}px`;
+    this.node.style.height = `${this.h}px`;
   };
 
   movLeft = () => {
     // if (this.x > this.giroMapLeft){
+    this.node.src = "./images/player-left.png";
     this.x -= this.giroMap;
     this.node.style.left = `${this.x}px`;
-    // this.wMov
-    // this.hMov 
 
+    this.w = 60;
+    this.h = 35;
+    this.node.style.width = `${this.w}px`;
+    this.node.style.height = `${this.h}px`;
 
-    this.node.src = "./images/player-left.png";
-    gameBox.append(this.node);
     // }
   };
 
   movRight = () => {
     // if (this.x < this.giroMapRight){
+    this.node.src = "./images/player-rigth.png";
     this.x += this.giroMap;
     this.node.style.left = `${this.x}px`;
-    
-    this.node.src = "./images/player-rigth.png";
+
     this.w = 60;
-    this.h = 35
+    this.h = 35;
     this.node.style.width = `${this.w}px`;
     this.node.style.height = `${this.h}px`;
-    
 
-    gameBox.append(this.node);
     // }
   };
   movDown = () => {
-
-      this.y += this.saltoMap;
-      this.node.style.top = `${this.y}px`;
-
+    this.node.src = "./images/player-cross.png";
+    this.y += this.saltoMap;
+    this.node.style.top = `${this.y}px`;
+    this.w = 40;
+    this.h = 45;
+    this.node.style.width = `${this.w}px`;
+    this.node.style.height = `${this.h}px`;
   };
 }

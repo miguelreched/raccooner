@@ -11,7 +11,7 @@ let scoreNumber = document.querySelector("#score-number")
 let botonVol = document.querySelector("#volumen")
 let sonidoTrafico = document.querySelector("#sonido")
 let isMusicOn = true;
-let MapSound = document.querySelector("#sonidoMap")
+let mapSound = document.querySelector("#sonidoMap")
 
 let gameObject;
 
@@ -63,6 +63,13 @@ const audioGeneral = () => {
   }
 
 }
+
+// const sonidoMapache = () => {
+//   if (this.mapache.y > 550)
+//   this.mapSound.play()
+//   this.mapSound.volume = 0.1
+
+// }
 
 const reLoad = () => {
   gameScreen.style.display = "flex";

@@ -114,6 +114,7 @@ colisionCar = () => {
       eachObstacle.y + eachObstacle.h > this.mapache.y
     ) {
       // console.log("estrellado");
+      // this.audio.play()
       this.gameOver();
 
     }
@@ -146,7 +147,7 @@ volverAEmpezar = () => {
     this.troncoArrLeft = [];
     this.troncoArrRight = [];
     this.mapache.x = 275;
-    this.mapache.y = 350;
+    this.mapache.y = 360;
     this.mapache.top = `${this.mapache.y}px`;
     this.mapache.left = `${this.mapache.x}px`;
 
@@ -171,12 +172,7 @@ gameOver = () => {
   
 };
 
-sonidoMapache = () => {
-  if (this.mapache.y > 500)
-  this.audio.src ="./sound/racSound.mp3";
-  this.audio.volume = 0.1
-  this.audio.play()
-}
+
 
 gameLoop = () => {
   this.cochesAppear();
@@ -188,7 +184,7 @@ gameLoop = () => {
   this.mapacheTronco();
   this.isMapacheDrowning();
   this.volverAEmpezar();
-  this.sonidoMapache();
+
   
   this.cochesArr.forEach((eachCoche) => {
     eachCoche.automaticMovement();
