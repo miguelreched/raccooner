@@ -4,11 +4,11 @@ class Troncos {
     this.node = document.createElement("img");
     this.node.src = "./images/tronco.png";
     if (this.type === "left") {
-      this.x = 0;
+      this.x = -150;
       this.troncoSpeed = 2;
       this.y = 50;
     } else if (this.type === "right") {
-      this.x = 600;
+      this.x = 800;
       this.troncoSpeed = -2;
       this.y = 90;
     }

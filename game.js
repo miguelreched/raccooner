@@ -13,14 +13,10 @@ class Game {
     // this.lives = 3;
     this.dificultyCarSpeed = 2.5;
     this.audio = new Audio ();
+
   }
 
-  audioGeneral = () => {
-    let sonidoTrafico = document.querySelector("#sonido")
-    sonidoTrafico.volume = 0.1;
-    // sonidoTrafico.currentTime = 0;
-    sonidoTrafico.play();
-  }
+ 
 
   troncosAppearLeft = () => {
     if (this.timer % 100 === 0) {
@@ -117,8 +113,9 @@ colisionCar = () => {
       eachObstacle.y < this.mapache.y + this.mapache.h &&
       eachObstacle.y + eachObstacle.h > this.mapache.y
     ) {
-      console.log("estrellado");
+      // console.log("estrellado");
       this.gameOver();
+
     }
   });
 };
@@ -173,6 +170,12 @@ gameOver = () => {
   gameOverScreen.style.display = "flex";
   
 };
+
+// sonidoMapache = () => {
+//   if ()
+//   this.audio.src ="./sound/racSound.mp3";
+//   this.audio.volume = 0.1
+// }
 
 gameLoop = () => {
   this.cochesAppear();

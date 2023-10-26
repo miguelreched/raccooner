@@ -9,6 +9,9 @@ let instruction = document.querySelector("#instructions")
 let scoreNode = document.querySelector("#score")
 let scoreNumber = document.querySelector("#score-number")
 let botonVol = document.querySelector("#volumen")
+let sonidoTrafico = document.querySelector("#sonido")
+let isMusicOn = true;
+let MapSound = document.querySelector("#sonidoMap")
 
 let gameObject;
 
@@ -21,7 +24,9 @@ const startGame = () => {
 
 
   gameObject = new Game();
-  gameObject.audioGeneral();
+  // audioGeneral();
+  sonidoTrafico.play();
+  sonidoTrafico.volume = 0.1;
   gameObject.gameLoop();
 };
 
@@ -31,8 +36,11 @@ const reStartGame = () => {
   instruction.style.display = "none";
   gameOverScreen.style.display ="none";
   gameBox.innerHTML = "";
+
   gameObject = new Game();
-  gameObject.audioGeneral();
+  // audioGeneral();
+  // sonidoTrafico.play();
+  // sonidoTrafico.volume = 0.1;
   gameObject.gameLoop();
   scoreNumber.innerHTML = 0
 
@@ -41,6 +49,20 @@ const reStartGame = () => {
 //   // scoreNode.style.display = "flex"
 //   // scoreNumber.style.display = "flex"
 };
+
+const audioGeneral = () => {
+  if (isMusicOn === false){
+  sonidoTrafico.volume = 0.1;
+  sonidoTrafico.play();
+  isMusicOn = true;
+  }
+  else {
+    isMusicOn = false
+    sonidoTrafico.currentTime = 0;
+    sonidoTrafico.pause();
+  }
+
+}
 
 const reLoad = () => {
   gameScreen.style.display = "flex";
@@ -52,7 +74,7 @@ const reLoad = () => {
 
 reStartButton.addEventListener("click", reStartGame);
 startButton.addEventListener("click", startGame);
-botonVol.addEventListener("click", this.gameObject.audioGeneral);
+botonVol.addEventListener("click", audioGeneral);
 
 // scoreNumber.addEventListener("click", reStartGame)
 

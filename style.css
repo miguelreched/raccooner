@@ -12,6 +12,7 @@ body {
     margin-top: 35px;
     border-radius: 6px;
     margin-left: 50px;
+    font-family: 'Luckiest Guy', cursive;
 }
 
 #restart-btn {
@@ -22,6 +23,7 @@ body {
   margin-top: 35px;
   border-radius: 6px;
   margin-left: 50px;
+  font-family: 'Luckiest Guy', cursive;
 }
 #volumen{
   font-family: 'Luckiest Guy', cursive;

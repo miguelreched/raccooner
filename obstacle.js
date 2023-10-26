@@ -3,7 +3,7 @@ class Coche {
     // let type = 0;
     // let altura = 200
     // let difSpeed = 2.5
-    console.log(difSpeed)
+    // console.log(difSpeed)
     this.node = document.createElement("img");
     if (type === 0) {
       this.node.src = "./images/coche1.png";
@@ -22,7 +22,7 @@ class Coche {
     this.w = 70;
     this.h = 40;
 
-    this.x = 0;
+    this.x = -80;
 
     this.node.style.width = `${this.w}px`;
     this.node.style.height = `${this.h}px`;
