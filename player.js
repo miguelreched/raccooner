@@ -7,19 +7,16 @@ class Mapache {
     // tamaño
     this.w = 40;
     this.h = 45;
-    this.wMov = 70;
-    this.hMov = 45;
     // posicion 1
     this.x = 275;
     this.y = 350;
     // DOM pos
-
     this.node.style.width = `${this.w}px`;
     this.node.style.height = `${this.h}px`;
     this.node.style.position = "absolute";
     this.node.style.top = `${this.y}px`;
     this.node.style.left = `${this.x}px`;
-    // salto node
+    // salto
     this.saltoMap = 20;
     this.giroMap = 20;
     this.node.style.zIndex = 1;
@@ -35,7 +32,6 @@ class Mapache {
   };
 
   movLeft = () => {
-    // if (this.x > this.giroMapLeft){
     this.node.src = "./images/player-left.png";
     this.x -= this.giroMap;
     this.node.style.left = `${this.x}px`;
@@ -44,12 +40,9 @@ class Mapache {
     this.h = 35;
     this.node.style.width = `${this.w}px`;
     this.node.style.height = `${this.h}px`;
-
-    // }
   };
 
   movRight = () => {
-    // if (this.x < this.giroMapRight){
     this.node.src = "./images/player-rigth.png";
     this.x += this.giroMap;
     this.node.style.left = `${this.x}px`;

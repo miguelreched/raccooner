@@ -41,7 +41,6 @@ body {
 
 }
 
-
 #score {
   color: black;
   padding: 0px;
@@ -87,7 +86,6 @@ body {
     line-height : 25px;
     
   }
-  
   
   #game-screen, #gameover-screen, #win-screen {
     display: none;
